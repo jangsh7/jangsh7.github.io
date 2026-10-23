@@ -1,0 +1,70 @@
+# ─────────────────────────────────────────────
+#  사이트 기본 정보
+# ─────────────────────────────────────────────
+title: 장서현
+tagline: 팀이 함께 나아갈 방향을 찾는 개발자
+description: 장서현의 포트폴리오, 소개, 기술 블로그
+url: "https://jangsh7.github.io"
+baseurl: ""
+lang: ko
+timezone: Asia/Seoul
+
+author:
+  name: 장서현
+  email: shshshsh77710@gmail.com
+  github: jangsh7
+  velog: jangsh7
+  linkedin: ""     # 예) seohyeon-jang  (비워 두면 아이콘이 숨겨져요)
+  instagram: ""    # 예) jangsh7
+
+# 상단 메뉴 (순서대로 표시)
+nav:
+  - title: Portfolio
+    url: /
+  - title: About
+    url: /about/
+  - title: Blog
+    url: /blog/
+
+# ─────────────────────────────────────────────
+#  블로그 설정
+# ─────────────────────────────────────────────
+# 글 주소: /blog/파일이름-slug/
+# 예) _posts/2026-10-22-hello-blog.md  →  /blog/hello-blog/
+permalink: /blog/:title/
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter: rouge
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+feed:
+  path: feed.xml
+
+# ─────────────────────────────────────────────
+#  글쓰기 페이지 (/write/)
+#  글을 저장할 GitHub 저장소와 브랜치
+# ─────────────────────────────────────────────
+writer:
+  repo: jangsh7/jangsh7.github.io
+  branch: main
+
+# 빌드에서 제외할 파일
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor

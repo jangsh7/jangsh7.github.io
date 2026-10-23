@@ -1,0 +1,42 @@
+---
+layout: default
+body_class: is-post
+---
+{% assign chars = content | strip_html | size %}
+{% assign minutes = chars | divided_by: 500 | floor | plus: 1 %}
+<article class="post" itemscope itemtype="https://schema.org/BlogPosting">
+  <header class="post-header">
+    <a class="post-back" href="{{ '/blog/' | relative_url }}">블로그 목록</a>
+    <h1 class="post-title" itemprop="headline">{{ page.title }}</h1>
+    {% if page.description %}<p class="post-lede">{{ page.description }}</p>{% endif %}
+    <p class="post-meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: '%Y년 %-m월 %-d일' }}</time>
+      <span aria-hidden="true">/</span>
+      <span>{{ minutes }}분 분량</span>
+    </p>
+    {% if page.tags.size > 0 %}
+    <p class="post-tags">
+      {% for t in page.tags %}<a class="tag" href="{{ '/blog/' | relative_url }}?tag={{ t | url_encode }}">{{ t }}</a>{% endfor %}
+    </p>
+    {% endif %}
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    {{ content }}
+  </div>
+
+  <nav class="post-pager" aria-label="이전·다음 글">
+    {% if page.previous %}
+      <a class="post-pager-link is-prev" href="{{ page.previous.url | relative_url }}">
+        <span class="post-pager-label">이전 글</span>
+        <span class="post-pager-title">{{ page.previous.title }}</span>
+      </a>
+    {% else %}<span></span>{% endif %}
+    {% if page.next %}
+      <a class="post-pager-link is-next" href="{{ page.next.url | relative_url }}">
+        <span class="post-pager-label">다음 글</span>
+        <span class="post-pager-title">{{ page.next.title }}</span>
+      </a>
+    {% endif %}
+  </nav>
+</article>

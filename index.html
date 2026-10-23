@@ -1,13 +1,18 @@
+---
+title: Portfolio
+---
 <!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>장서현 Portfolio</title>
+<title>Seohyeon Jang</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧭</text></svg>" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
+{% feed_meta %}
 <style>
   :root{
     --bg:#ffffff;
@@ -447,6 +452,7 @@
     <span class="blob-c"></span>
     <span class="blob-d"></span>
   </div>
+  {% include nav.html %}
 
   
     <section class="section hero" id="top">
@@ -1320,6 +1326,7 @@
     </section>
     
 
+
     <section class="section closing" id="closing">
       <h2 class="closing-name">장서현</h2>
       <p class="closing-sub">Seohyeon Jang · 張敍賢</p>
@@ -1328,6 +1335,8 @@
         <span>— Nelson Mandela</span>
       </blockquote>
       <div class="closing-links">
+        <a href="{{ '/about/' | relative_url }}" class="pill-link">About</a>
+        <a href="{{ '/blog/' | relative_url }}" class="pill-link">Blog</a>
         <a href="https://github.com/jangsh7" target="_blank" rel="noopener" class="pill-link">GitHub ↗</a>
         <a href="https://velog.io/@jangsh7/posts" target="_blank" rel="noopener" class="pill-link">Velog ↗</a>
         <a href="https://quirky-athlete-338.notion.site/3d05db8d670d80c09324c33945afc0a5?pvs=74" target="_blank" rel="noopener" class="pill-link">Notion 포트폴리오 ↗</a>
@@ -1366,5 +1375,6 @@
       });
     })();
   </script>
+  <script src="{{ '/assets/js/site.js' | relative_url }}" defer></script>
 </body>
 </html>

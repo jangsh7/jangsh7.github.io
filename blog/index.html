@@ -1,0 +1,37 @@
+---
+layout: page
+title: Blog
+description: 공부하고 만들고 부딪힌 것들을 기록합니다.
+---
+<header class="page-head page-head-row">
+  <div>
+    <h1>Blog</h1>
+    <p>{{ page.description }}</p>
+  </div>
+  <a class="write-btn" href="{{ '/write/' | relative_url }}" data-owner-only hidden>✏️ 글 쓰기</a>
+</header>
+
+{% if site.posts.size > 0 %}
+  {% assign tag_names = site.tags | sort %}
+  {% if tag_names.size > 0 %}
+  <ul class="tag-filter" data-tag-filter aria-label="태그로 글 거르기">
+    <li><button type="button" data-tag="" aria-pressed="true">전체<span class="count">{{ site.posts.size }}</span></button></li>
+    {% for t in tag_names %}
+      <li><button type="button" data-tag="{{ t[0] }}" aria-pressed="false">{{ t[0] }}<span class="count">{{ t[1].size }}</span></button></li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+
+  {% assign by_year = site.posts | group_by_exp: "p", "p.date | date: '%Y'" %}
+  {% for year in by_year %}
+  <section class="post-year" aria-labelledby="y{{ year.name }}">
+    <h2 class="post-year-label" id="y{{ year.name }}">{{ year.name }}</h2>
+    <ul class="post-grid">
+      {% for p in year.items %}{% include post-card.html post=p %}{% endfor %}
+    </ul>
+  </section>
+  {% endfor %}
+  <p class="blog-empty" data-blog-empty hidden>이 태그로 쓴 글이 아직 없어요.</p>
+{% else %}
+  <p class="blog-empty">첫 글을 준비하고 있어요.</p>
+{% endif %}
