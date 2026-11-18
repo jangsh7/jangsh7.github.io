@@ -33,7 +33,7 @@
 
 ## 메뉴·정보 바꾸기
 
-- 상단 메뉴, 이름, 이메일, 링크: `_config.yml`
+- 상단 메뉴, 이름, 링크: `_config.yml`
 - 소개 페이지 내용: `about/index.html`
 - 색·글꼴: `assets/css/site.css` 맨 위 `:root`
 
